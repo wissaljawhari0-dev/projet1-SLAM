@@ -1,21 +1,23 @@
 import subprocess
 
 def verifier_windows_update():
+    try:
+        resultat = subprocess.run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                "$service = Get-Service -Name 'wuauserv' "
+                "-ErrorAction Stop; "
+                "if ($service.Status -eq 'Running') "
+                "{ exit 0 } else { exit 1 }"
+            ],
+            capture_output=True,
+            text=True,
+            timeout=15
+        )
 
-    commande = subprocess.run(
-        [
-            "powershell",
-            "-Command",
-            "Get-Service wuauserv | Select-Object -ExpandProperty Status"
-        ],
-        capture_output=True,
-        text=True
-    )
+        return resultat.returncode == 0
 
-    resultat = commande.stdout.strip()
-
-    if resultat == "Running":
-        return True
-
-    return False
-#print(verifier_windows_update())
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return False
