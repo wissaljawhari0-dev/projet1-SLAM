@@ -1,12 +1,13 @@
 import psutil
 
-def verifier_ram(ram_attendue): # pour verifier la rame
+def verifier_ram(ram_attendue):
+    try:
+        ram_reelle = psutil.virtual_memory().total / (1024 ** 3)
 
-    ram_reelle = round(
-        psutil.virtual_memory().total / (1024 ** 3)
-    )
+        return (
+            ram_reelle >= ram_attendue,
+            round(ram_reelle, 2)
+        )
 
-    if ram_reelle >= ram_attendue:
-        return True, ram_reelle
-
-    return False, ram_reelle
+    except Exception:
+        return False, 0
