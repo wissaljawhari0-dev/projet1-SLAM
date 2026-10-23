@@ -78,21 +78,21 @@ Le rapport permet de conserver une trace des résultats de la recette.
 
 Depuis le dossier du projet, installer les dépendances :
 
-```bash
+
 py -m pip install -r requirements.txt
-```
+
 
 Lancer l’application :
 
-```bash
+
 py source/interface/fenetre_principale.py
-```
+
 
 Exécuter les tests :
 
-```bash
+
 py -m pytest tests -v -p no:cacheprovider
-```
+
 
 ### 10. Sécurité et précautions
 
