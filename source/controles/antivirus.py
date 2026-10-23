@@ -1,21 +1,23 @@
 import subprocess
 
 def verifier_antivirus():
+    try:
+        resultat = subprocess.run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                "$s = Get-MpComputerStatus -ErrorAction Stop; "
+                "if ($s.AntivirusEnabled -and "
+                "$s.RealTimeProtectionEnabled) "
+                "{ exit 0 } else { exit 1 }"
+            ],
+            capture_output=True,
+            text=True,
+            timeout=15
+        )
 
-    commande = subprocess.run(
-        [
-            "powershell",
-            "-Command",
-            "(Get-MpComputerStatus).AntivirusEnabled" #L'antivirus est-il activé ?
-        ],
-        capture_output=True,
-        text=True
-    )
+        return resultat.returncode == 0
 
-    resultat = commande.stdout.strip()
-
-    if resultat == "True":
-        return True
-
-    return False
-#print(verifier_antivirus())
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return False
