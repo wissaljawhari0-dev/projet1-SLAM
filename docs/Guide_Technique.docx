@@ -1,0 +1,3 @@
+Le script degradation.ps1 est utilisé pour simuler des anomalies
+afin de tester le moteur de recette et les fonctions de correction
+automatique.
