@@ -6,4 +6,4 @@ config.read("config.ini")
 
 nom_application = config["APPLICATION"]["nom"]
 
-print(nom_application)
+#print(nom_application)
