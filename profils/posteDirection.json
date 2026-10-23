@@ -1,7 +1,36 @@
 {
     "nom_profil": "POSTE-DIRECTION",
     "version": "1.0",
+    "date_validation": "2026-10-23",
     "ram_min": 16,
     "espace_disque_min": 100,
-    "nom_pc": "wissal"
+    "nom_pc": "wissal",
+    "chrome": true,
+    "controles": [
+        {"id": "C01", "nom": "Nom du poste", "actif": true},
+        {"id": "C02", "nom": "Compte administrateur", "actif": true},
+        {"id": "C03", "nom": "Comptes locaux autorisés", "actif": true},
+        {"id": "C04", "nom": "Mémoire RAM", "actif": true},
+        {"id": "C05", "nom": "Espace disque", "actif": true},
+        {"id": "C06", "nom": "Santé du disque SMART", "actif": false},
+        {"id": "C07", "nom": "Type de disque", "actif": false},
+        {"id": "C08", "nom": "Version de Windows", "actif": true},
+        {"id": "C09", "nom": "Activation Windows", "actif": false},
+        {"id": "C10", "nom": "Heure et synchronisation", "actif": true},
+        {"id": "C11", "nom": "Mises à jour Windows", "actif": true},
+        {"id": "C12", "nom": "Antivirus", "actif": true},
+        {"id": "C13", "nom": "Signatures antivirus", "actif": true},
+        {"id": "C14", "nom": "BitLocker", "actif": true},
+        {"id": "C15", "nom": "Pare-feu", "actif": true},
+        {"id": "C16", "nom": "Logiciels obligatoires", "actif": true},
+        {"id": "C17", "nom": "Logiciels interdits", "actif": true},
+        {"id": "C18", "nom": "État des services", "actif": true},
+        {"id": "C19", "nom": "NumLock", "actif": true},
+        {"id": "C20", "nom": "Extensions de fichiers visibles", "actif": true},
+        {"id": "C21", "nom": "Fichiers cachés visibles", "actif": true},
+        {"id": "C22", "nom": "Confirmation de suppression", "actif": true},
+        {"id": "C23", "nom": "Page d'accueil Chrome", "actif": true},
+        {"id": "C24", "nom": "Imprimante", "actif": true},
+        {"id": "C25", "nom": "Journaux Windows", "actif": true}
+    ]
 }
