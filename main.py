@@ -2,7 +2,7 @@ from source.controles.ram import verifier_ram # pour avoire accé au fichier ram
 from source.controles.journal import ecrire_log #  remplire fichier log de maniére 'auto', faire la jornalisation
 from source.moteur.moteur_recette import ajouter_resultat, afficher_resultats
 from source.controles.parefeu import verifier_parefeu
-from source.controles.chrom import verifier_chrome
+from source.controles.chrome import verifier_chrome
 from source.controles.antivirus import verifier_antivirus
 from source.controles.windows_update import verifier_windows_update
 from source.controles.bitlocker import verifier_bitlocker
