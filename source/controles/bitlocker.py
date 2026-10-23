@@ -1,21 +1,23 @@
 import subprocess
 
 def verifier_bitlocker():
+    try:
+        resultat = subprocess.run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-Command",
+                "$b = Get-BitLockerVolume -MountPoint 'C:' "
+                "-ErrorAction Stop; "
+                "if ($b.ProtectionStatus -eq 'On') "
+                "{ exit 0 } else { exit 1 }"
+            ],
+            capture_output=True,
+            text=True,
+            timeout=15
+        )
 
-    commande = subprocess.run(
-        [
-            "powershell",
-            "-Command",
-            "(Get-BitLockerVolume -MountPoint 'C:').ProtectionStatus"
-        ],
-        capture_output=True,
-        text=True
-    )
+        return resultat.returncode == 0
 
-    resultat = commande.stdout.strip()
-
-    if resultat == "1":
-        return True
-
-    return False
-#print(verifier_bitlocker())
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return False
